@@ -1,0 +1,38 @@
+{
+  "name": "Shapes #9",
+  "symbol": "SHPS",
+  "description": "Some Shapes",
+  "seller_fee_basis_points": 5000,
+  "image": "9.png",
+  "external_url": "http://google.com",
+  "edition": 9,
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "background2"
+    },
+    {
+      "trait_type": "Circle",
+      "value": "circle1"
+    },
+    {
+      "trait_type": "Triangle",
+      "value": "triangle3"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "9.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "6YvLrdpVjitbusGtZygz2PzVbM2DtuCyUnSYtQ3tcHei",
+        "share": 100
+      }
+    ]
+  }
+}
