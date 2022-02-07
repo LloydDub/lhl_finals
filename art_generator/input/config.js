@@ -68,3 +68,5 @@ const layer = [
     size: { width: width, height: height },
   },
 ];
+
+console.log(layers);
