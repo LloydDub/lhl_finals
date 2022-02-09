@@ -9,6 +9,7 @@ const rarity = [
   { key: "_sr", val: "epic" },
 ];
 
+// sets the value based on the key above,
 const addRarity = (_str) => {
   let itemRarity;
   rarity.forEach((r) => {
@@ -85,14 +86,14 @@ const layers = [
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
-  {
-    id: 6,
-    name: "bottom lid",
-    location: `${dir}/"bottom lid/`,
-    elements: getElements(`${dir}/bottom lid/`),
-    position: { x: 0, y: 0 },
-    size: { width: width, height: height },
-  },
+  // {
+  //   id: 6,
+  //   name: "bottom lid",
+  //   location: `${dir}/"bottom lid/`,
+  //   elements: getElements(`${dir}/bottom lid/`),
+  //   position: { x: 0, y: 0 },
+  //   size: { width: width, height: height },
+  // },
   {
     id: 7,
     name: "top lid",
@@ -102,5 +103,5 @@ const layers = [
     size: { width: width, height: height },
   },
 ];
-
-console.log(layers[1].elements);
+console.log("!!!", getElements(`${dir}/bottom lid/`));
+module.exports = { layers, width, height };
