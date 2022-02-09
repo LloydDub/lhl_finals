@@ -21,7 +21,7 @@ const addRarity = (_str) => {
 
 const cleanName = (_str) => {
   let name = _str.slice(0, -4);
-  rarity.forEach(() => {
+  rarity.forEach((r) => {
     name = name.replace(r.key, "");
   });
   return name;
@@ -102,4 +102,4 @@ const layers = [
   },
 ];
 
-console.log(layers[1].elements);
+console.log(layers);
