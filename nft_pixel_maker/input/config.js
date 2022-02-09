@@ -6,19 +6,20 @@ const dir = __dirname;
 const rarity = [
   { key: "", val: "common" },
   { key: "_r", val: "rare" },
-  { key: "_sr", val: "super rare" },
+  { key: "_sr", val: "epic" },
 ];
 
 const addRarity = (_str) => {
   let itemRarity;
   rarity.forEach((r) => {
     if (_str.includes(r.key)) {
-      itemRarity = r.value;
+      itemRarity = r.val;
     }
   });
   return itemRarity;
 };
 
+//cleans the name by taking in string and slicing .png and checks for the rarity property
 const cleanName = (_str) => {
   let name = _str.slice(0, -4);
   rarity.forEach((r) => {
@@ -36,8 +37,8 @@ const getElements = (path) => {
       return {
         id: index + 1,
         name: cleanName(i),
-        filename: i,
-        rarity: addRarity(i),
+        fileName: i,
+        Rarity: addRarity(i),
       };
     });
 };
@@ -102,4 +103,4 @@ const layers = [
   },
 ];
 
-console.log(layers);
+console.log(layers[1].elements);
