@@ -47,53 +47,65 @@ const getElements = (path) => {
 //think about how your layers are built up!
 const layers = [
   {
-    id: 1,
-    name: "background_3",
     location: `${dir}/background_3/`,
     elements: getElements(`${dir}/background_3/`),
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
   {
-    id: 2,
-    name: "broth_4",
     location: `${dir}/broth_4/`,
     elements: getElements(`${dir}/broth_4/`),
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
   {
-    id: 3,
-    name: "noodle_4",
     location: `${dir}/noodle_4/`,
     elements: getElements(`${dir}/noodle_4/`),
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
   {
-    id: 4,
-    name: "egg_2",
     location: `${dir}/egg_2/`,
     elements: getElements(`${dir}/egg_2/`),
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
   {
-    id: 5,
-    name: "protein_4",
     location: `${dir}/protein_4/`,
     elements: getElements(`${dir}/protein_4/`),
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
   {
-    id: 6,
-    name: "seaweed_1",
-    location: `${dir}/seaweed_1/`,
-    elements: getElements(`${dir}/seaweed_1/`),
+    location: `${dir}/garnish_6/`,
+    elements: getElements(`${dir}/garnish_6/`),
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
+  {
+    location: `${dir}/mushroom_2/`,
+    elements: getElements(`${dir}/mushroom_2/`),
+    position: { x: 0, y: 0 },
+    size: { width: width, height: height },
+  },
+  {
+    location: `${dir}/onion_3/`,
+    elements: getElements(`${dir}/onion_3/`),
+    position: { x: 0, y: 0 },
+    size: { width: width, height: height },
+  },
+  {
+    location: `${dir}/veg_3/`,
+    elements: getElements(`${dir}/veg_3/`),
+    position: { x: 0, y: 0 },
+    size: { width: width, height: height },
+  },
+  // {
+  //   location: `${dir}/seaweed_1/`,
+  //   elements: getElements(`${dir}/seaweed_1/`),
+  //   position: { x: 0, y: 0 },
+  //   size: { width: width, height: height },
+  // },
 ];
 // console.log("!!!", getElements(`${dir}/bottom lid/`));
 module.exports = { layers, width, height };
