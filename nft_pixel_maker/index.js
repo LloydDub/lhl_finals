@@ -39,7 +39,7 @@ const drawBackground = () => {
 const addMetadata = (_dna, _edition) => {
   let dateTime = Date.now();
   let tempMetadata = {
-    dna: _dna,
+    dna: _dna.join(""),
     edition: _edition,
     dateTime: dateTime,
     attributes: attributesList
@@ -75,14 +75,9 @@ const drawElement = (_element) => {
   addAttributes(_element);
 };
 
-const constructLayerToDna = (_dna, _layers) => {
-  // seperate the DNA number into pairs of 2 into an array
-  let dnaSegment = _dna.toString().match(/.{1,2}/g);
-  let counter = 0;
-  let mappedDnaToLayers = _layers.map((layer) => {
-    // select layer.element[index] by using remainder from each two pair/# of elements in the layer
-    let selectedElement = layer.elements[dnaSegment[counter] % layer.elements.length]
-    counter += 1;
+const constructLayerToDna = (_dna = [], _layers = []) => {
+  let mappedDnaToLayers = _layers.map((layer, index) => {
+    let selectedElement = layer.elements[_dna[index]];
     return {
       location: layer.location,
       position: layer.position,
@@ -93,36 +88,23 @@ const constructLayerToDna = (_dna, _layers) => {
   return mappedDnaToLayers;
 };
 
-const isDnaUnique = (_DnaList = [], _dna) => {
-  let foundDna =  _DnaList.find((i) => i === _dna);
+const isDnaUnique = (_DnaList = [], _dna = []) => {
+  let foundDna =  _DnaList.find((i) => i.join("") === _dna.join(""));
   return foundDna == undefined ? true : false;
 };
 
-const createDna = (_len) => {
-  let randNum = 0;
-  //have to generate a random two number pair for each layer (10 layers = 20 numbers)
-  if (_len > 16) {
-    let maxChar = 15;
-    //if more than 15 character number, BigInt must be used to avoid trailing zeroes
-    randNum = BigInt("" + Math.floor(
-      Number(`1e${maxChar}`) + Math.random() * Number(`9e${maxChar}`)) + Math.floor(Number(`1e${_len - maxChar - 1}`) + Math.random() * Number(`9e${_len - maxChar - 1}`)));
-  } else {
-    randNum = Math.floor(
-      Number(`1e${_len}`) + Math.random() * Number(`9e${_len}`)) + Math.floor(1000 + Math.random() * 9000);
-    console.log(randNum)
-  }
+const createDna = (_layers) => {
+  let randNum = [];
+  _layers.forEach((layer) => {
+    let num = Math.floor(Math.random() * layer.elements.length)
+    randNum.push(num);
+  });
+
   return randNum;
 }
 
 const writeMetadata = (_data) => {
   fs.writeFileSync("./output/_metadata.json", _data);
-};
-
-// function which allows serilaization of BigInt into metadata if over 8 layers
-const stringify = (value) => {
-  if (value !== undefined) {
-    return JSON.stringify(value, (_, v) => typeof v === 'bigint' ? `${v}n` : v);
-  }
 };
 
 const startCreating = async () => {
@@ -132,7 +114,7 @@ const startCreating = async () => {
   let editionCount = 1;
 
   while(editionCount <= editionSize) {
-    let newDna = createDna((layers.length * 2) - 1)
+    let newDna = createDna(layers)
     console.log(`New DNA: ${newDna}`);
     // everything in if statement will run if dna is not found in dnalist
     
@@ -166,7 +148,7 @@ const startCreating = async () => {
     }
   }
   console.log("Final DNA List: ", dnaList);
-  writeMetadata(stringify(metadataList)); 
+  writeMetadata(JSON.stringify(metadataList));
 };
 
 startCreating();
