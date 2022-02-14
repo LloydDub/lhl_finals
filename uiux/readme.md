@@ -7,5 +7,13 @@ My idea is to make the nft-gated section of the site uses the art-engine.
 4. user uploads files to app
 5. argv terminal command turned into a browser input
 7. user form for meta-data.
- :w
+ 
 
+
+ ------------------------------------------------------------------------------------------------
+
+   "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "multer": "^1.4.4"
+  }
