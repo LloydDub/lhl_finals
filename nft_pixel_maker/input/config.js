@@ -70,6 +70,7 @@ const layers = [
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
+
   {
     id: 4,
     name: "egg_2",
@@ -79,18 +80,18 @@ const layers = [
     size: { width: width, height: height },
   },
   {
-    id: 5,
-    name: "protein_4",
-    location: `${dir}/protein_4/`,
-    elements: getElements(`${dir}/protein_4/`),
-    position: { x: 0, y: 0 },
-    size: { width: width, height: height },
-  },
-  {
     id: 6,
     name: "seaweed_1",
     location: `${dir}/seaweed_1/`,
     elements: getElements(`${dir}/seaweed_1/`),
+    position: { x: 0, y: 0 },
+    size: { width: width, height: height },
+  },
+  {
+    id: 5,
+    name: "protein_4",
+    location: `${dir}/protein_4/`,
+    elements: getElements(`${dir}/protein_4/`),
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
   },
