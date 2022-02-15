@@ -1,11 +1,18 @@
 const fs = require("fs");
-const myArgs = process.argv.slice(2);
 const { createCanvas, loadImage } = require("canvas");
-const { layers, width, height } = require("./input/config");
+const {
+  width, 
+  height, 
+  description, 
+  baseImageUri, 
+  startEditionFrom, 
+  endEditionAt, 
+  editionSize,
+  ramenWeights,
+  ramenBowls  } = require("./input/config");
 const canvas = createCanvas(width, height);
 const ctx = canvas.getContext("2d");
-// sets the amount to make  via terminal
-const editionSize = myArgs.length > 0 ? Number(myArgs[0]) : 1;
+
 let metadataList = [];
 let attributesList = [];
 let dnaList = [];
@@ -33,13 +40,14 @@ const drawBackground = () => {
   ctx.fillRect(0, 0, width, height);
 }
 
-
-
 //pushes meta data for nft to JSON
 const addMetadata = (_dna, _edition) => {
   let dateTime = Date.now();
   let tempMetadata = {
     dna: _dna.join(""),
+    name: `#${_edition}`,
+    description: description,
+    image: `${baseImageUri}/${_edition}`,
     edition: _edition,
     dateTime: dateTime,
     attributes: attributesList
@@ -59,7 +67,9 @@ const addAttributes = (_element) => {
 // applies layers randomly to create our editions.
 const loadLayerImg = async (_layer) => {
   return new Promise(async (resolve) => {
-    const image = await loadImage(`${_layer.location}${_layer.selectedElement.fileName}`);
+    const image = await loadImage(
+      `${_layer.selectedElement.path}`
+      );
     resolve({layer: _layer, loadedImage: image})
   });
 };
@@ -75,11 +85,14 @@ const drawElement = (_element) => {
   addAttributes(_element);
 };
 
-const constructLayerToDna = (_dna = [], _layers = []) => {
-  let mappedDnaToLayers = _layers.map((layer, index) => {
-    let selectedElement = layer.elements[_dna[index]];
+const constructLayerToDna = (_dna = [], _ramenBowls = [], _ramenBowl) => {
+  console.log(_dna)
+  let ramenBowl = _ramenBowl.toLowerCase();
+
+  let mappedDnaToLayers = _ramenBowls[ramenBowl].layers.map((layer, index) => {
+    
+    let selectedElement = layer.elements.find((e) => e.id == _dna[index]);
     return {
-      location: layer.location,
       position: layer.position,
       size: layer.size,
       selectedElement: selectedElement
@@ -88,20 +101,38 @@ const constructLayerToDna = (_dna = [], _layers = []) => {
   return mappedDnaToLayers;
 };
 
+const getRamenBowl = (_randNum) => {
+  let ramenBowl = "";
+  ramenWeights.forEach(ramenWeight => {
+    if(_randNum >= ramenWeight.from && _randNum <= ramenWeight.to) {
+      ramenBowl = ramenWeight.value.toLowerCase();
+    }
+  })
+  return ramenBowl;
+};
+
 const isDnaUnique = (_DnaList = [], _dna = []) => {
   let foundDna =  _DnaList.find((i) => i.join("") === _dna.join(""));
   return foundDna == undefined ? true : false;
 };
 
-const createDna = (_layers) => {
+const createDna = (_ramenBowls, _ramenBowl) => {
   let randNum = [];
-  _layers.forEach((layer) => {
-    let num = Math.floor(Math.random() * layer.elements.length)
+  let ramenBowl = _ramenBowl.toLowerCase();
+
+  _ramenBowls[ramenBowl].layers.forEach((layer) => {
+    let randElementNum = Math.floor(Math.random() * 100);
+    let num = 0;
+    layer.elements.forEach((element) => {
+      if (randElementNum >= 100 - element.weight) {
+        num = element.id;
+      }
+    })
     randNum.push(num);
   });
 
   return randNum;
-}
+};
 
 const writeMetadata = (_data) => {
   fs.writeFileSync("./output/_metadata.json", _data);
@@ -111,18 +142,23 @@ const startCreating = async () => {
   //clears metadata every time you run the file
   writeMetadata("");
   // we want to loop over editon create a piece and loo over the layers obect.
-  let editionCount = 1;
+  let editionCount = startEditionFrom;
 
-  while(editionCount <= editionSize) {
-    let newDna = createDna(layers)
+  while(editionCount <= endEditionAt) {
+    let randNum = Math.floor(Math.random() * editionSize)
+    let ramenBowl = getRamenBowl(randNum);
+    console.log("Random number to determine background (ramenWeights): ", randNum)
+    
+    let newDna = createDna(ramenBowls, ramenBowl)
+
+    console.log("Background chosen via ramenWeights: ", ramenBowl)
     console.log(`New DNA: ${newDna}`);
     // everything in if statement will run if dna is not found in dnalist
     
     if (isDnaUnique(dnaList, newDna)) {
       
-      let results = constructLayerToDna(newDna, layers);
+      let results = constructLayerToDna(newDna, ramenBowls, ramenBowl);
       let loadedElements = [];
-      
       // pushing each promise loadedElements PROMISE array
       results.forEach(layer => {
         loadedElements.push(loadLayerImg(layer));
@@ -134,7 +170,7 @@ const startCreating = async () => {
         elementArray.forEach(element => {
           drawElement(element);
         });
-        signImage(`#${editionCount}/4200`);
+        signImage(`#${editionCount}/${editionSize}`);
         saveImage(editionCount);
         addMetadata(newDna, editionCount);
         console.log(`New DNA is unique. Created edition ${editionCount} with DNA: ${newDna}`);
