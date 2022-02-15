@@ -12,13 +12,14 @@
 
 <body>
   <div class="container">
-    <h1>File Upload</h1>
+
+    <h1>Layer Upload 1</h1>
     <%= typeof msg !='undefined' ? msg : '' %>
       <form action="/upload" method="POST" enctype="multipart/form-data">
         <div class="file-field input-field">
           <div class="btn gret">
             <span>File</span>
-            <input name="layer1" type="file">
+            <input name="myImage" type="file">
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text">
@@ -26,6 +27,62 @@
         </div>
         <button type="submit" class="btn">Submit</button>
       </form>
+      <!-- <h1>Layer Upload 2</h1>
+      <%= typeof msg !='undefined' ? msg : '' %>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+          <div class="file-field input-field">
+            <div class="btn gret">
+              <span>File</span>
+              <input name="layer1" type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+        <h1>Layer Upload 3</h1>
+        <%= typeof msg !='undefined' ? msg : '' %>
+          <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="file-field input-field">
+              <div class="btn gret">
+                <span>File</span>
+                <input name="layer1" type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+          </form>
+          <h1>Layer Upload 4</h1>
+          <%= typeof msg !='undefined' ? msg : '' %>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+              <div class="file-field input-field">
+                <div class="btn gret">
+                  <span>File</span>
+                  <input name="layer1" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+              <button type="submit" class="btn">Submit</button>
+            </form>
+            <h1>Layer Upload 5</h1>
+            <%= typeof msg !='undefined' ? msg : '' %>
+              <form action="/upload" method="POST" enctype="multipart/form-data">
+                <div class="file-field input-field">
+                  <div class="btn gret">
+                    <span>File</span>
+                    <input name="layer1" type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+              </form> -->
 
   </div>
 
