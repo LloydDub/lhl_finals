@@ -2,10 +2,10 @@ const fs = require("fs");
 const width = 1000;
 const height = 1000;
 const dir = __dirname;
-const description = "This is an NFT made by our generative art engine.";
-const baseImageUri = "https:///hashlips/nft/1";
+const description = "Test Minting";
+const baseImageUri = "";
 const startEditionFrom = 1;
-const endEditionAt = 10;
+const endEditionAt = 500;
 const editionSize = 100;
 
 const ramenWeights = [
