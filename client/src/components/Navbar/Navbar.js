@@ -5,7 +5,12 @@ export default function Navbar() {
     <>
     <nav>
       <h1 className="navbar-logo">Title</h1>
-    <div className="navbar-icon"></div>
+        <div className="navbar-icon">
+
+        </div>
+        <ul>
+          <li><a href=""></a></li>
+        </ul>
     </nav>
     </>
   );
