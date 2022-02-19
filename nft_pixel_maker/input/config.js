@@ -2,11 +2,11 @@ const fs = require("fs");
 const width = 1000;
 const height = 1000;
 const dir = __dirname;
-const description = "Test Minting";
+const description = "Demo Day Minting";
 const baseImageUri = "";
 const startEditionFrom = 1;
-const endEditionAt = 500;
-const editionSize = 100;
+const endEditionAt = 10;
+const editionSize = 10;
 
 const ramenWeights = [
   {

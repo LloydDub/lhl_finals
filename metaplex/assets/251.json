@@ -1,0 +1,82 @@
+{
+  "name": "The RameNFT Bar #251",
+  "symbol": "RAMEN",
+  "description": "A delecious collection of 888 generative ramen bowls.",
+  "seller_fee_basis_points": 5000,
+  "image": "251.png",
+  "external_url": "https://github.com/LloydDub/ramen_nft",
+  "edition": 251,
+  "attributes": [
+    {
+      "trait_type": "background",
+      "value": "brownBack"
+    },
+    {
+      "trait_type": "broth",
+      "value": "shioBroth"
+    },
+    {
+      "trait_type": "noodle",
+      "value": "ramenNoodle"
+    },
+    {
+      "trait_type": "seaweed",
+      "value": "seaweed"
+    },
+    {
+      "trait_type": "protein",
+      "value": "tofu"
+    },
+    {
+      "trait_type": "sideGarnish",
+      "value": "radish"
+    },
+    {
+      "trait_type": "lime",
+      "value": "lime"
+    },
+    {
+      "trait_type": "egg",
+      "value": "ramen_nft"
+    },
+    {
+      "trait_type": "veg",
+      "value": "cilantro"
+    },
+    {
+      "trait_type": "mushroom",
+      "value": "enoki"
+    },
+    {
+      "trait_type": "onion",
+      "value": "scallion"
+    },
+    {
+      "trait_type": "middleGarnish",
+      "value": "whiteSes"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "251.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "6YvLrdpVjitbusGtZygz2PzVbM2DtuCyUnSYtQ3tcHei",
+        "share": 33
+      },
+      {
+        "address": "Dqnd1X54jZtq9np5kQZsN2fY925puVV8fiwuya1yPq1f",
+        "share": 33.5
+      },
+      {
+        "address": "4pkNW1yZ2cjDFLvpQzThGrinTsYU5DMywrPU8qXkmebq",
+        "share": 33.5
+      }
+    ]
+  }
+}
