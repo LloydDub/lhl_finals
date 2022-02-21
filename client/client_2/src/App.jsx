@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import {Welcome, Navbar, Footer, Services, Transaction} from './components'
+import {Welcome, Navbar, Footer, Transaction, CollectionCard} from './components'
+import MultipleItems from './components/CollectionCard'
 
 function App() {
  
@@ -10,7 +11,7 @@ function App() {
        <Navbar />
        <Welcome />
      </div>
-     <Services />
+     <MultipleItems />
      <Transaction />
      <Footer />
     </div>
