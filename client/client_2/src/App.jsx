@@ -1,19 +1,24 @@
 import { useState } from 'react'
-import {Welcome, Navbar, Footer, Transaction, CollectionCard} from './components'
+// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {Welcome, NavBar, Footer, Transaction, CollectionCard, SignUp} from './components'
 import MultipleItems from './components/CollectionCard'
 
 function App() {
  
 
   return (
+  
     <div className="min-h-screen">
      <div className="gradient-bg-welcome">
-       <Navbar />
+       <NavBar />
        <Welcome />
      </div>
      <MultipleItems />
-     <Transaction />
-     <Footer />
+     <div className="gradient-bg-welcome">
+       <SignUp />
+     </div>
+     {/* <Transaction />
+     <Footer /> */}
     </div>
   )
 }
