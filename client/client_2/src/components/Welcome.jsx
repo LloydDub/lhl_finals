@@ -1,3 +1,5 @@
+//in collaboration with @dyoung4747
+
 import React from 'react'
 
 import {BsInfoCircle} from 'react-icons/bs'
@@ -10,14 +12,16 @@ export default function Welcome() {
   const connectWallet = () => ( {})
 
   return (
-   <div className='flex w-full justify-center items-center'>
+    <div className='flex w-full justify-center items-center'>
      <div className='flex md:flex-row flex-col items-start justify-between md:pd-20 py-12 px-4'>
       <div className='flex flex-1 justify-start flex-col md:mr-10'>
         <h1 className='text-3xl sm:text-5xl text-white text-gradient py-1'>
-          With [title] you can mint and make <br /> your own NFT's!
+          With The RameNFT Bar you can mint and <br />make  your own, delicious NFT's!
         </h1>
         <p className='text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base'>
-        Space, the final frontier. These are the voyages of the Starship Enterprise. <br /> Its five-year mission: blah blah blah.
+        Just connect your wallet. <br/> 
+        Select Mint. <br/> 
+        And BOOM! You own a unique & tasty RameNFT from our highly touted premier collection of 888.
         </p>
         <button
           type='button'
@@ -39,13 +43,13 @@ export default function Welcome() {
               Solana
           </div>
           <div className={`rounded-bl-2xl ${commonStyles} `}>
-              Over 4K+ unique assets
+              888 unique assets
           </div>
             <div className={commonStyles}>
               Hassle free
             </div>
             <div className={`rounded-br-2xl ${commonStyles} `}>
-              Using Phantom Wallet
+              Uses Phantom Wallet
           </div>
         </div>
       </div>
