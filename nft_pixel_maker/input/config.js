@@ -6,7 +6,7 @@ const description = "Demo Day Minting";
 const baseImageUri = "";
 const startEditionFrom = 1;
 const endEditionAt = 10;
-const editionSize = 10;
+const editionSize = 5;
 
 const ramenWeights = [
   {
