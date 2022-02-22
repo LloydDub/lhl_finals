@@ -9,7 +9,7 @@ import solanaLogoMark from '../assets/solanaLogoMark.png'
 export default function CollectionCard({id, name, image}) {
   return (
     <div class="images" className='gradient-bg-welcome'>
-        <h1 className='text-2xl text-white  py-3 text-center'>Explore our Collection</h1>
+        <h1 id='just_minted' className='text-2xl text-white  py-3 text-center'>Explore our Collection</h1>
         <div class="images__container">
             <div class="images__card">
                 <h2>CryptoBowls</h2>
