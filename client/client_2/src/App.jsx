@@ -12,9 +12,11 @@ function App() {
      <div className="gradient-bg-welcome">
        <NavBar />
        <Welcome />
+       <CollectionCard />
      </div>
-     <MultipleItems />
-     <div className="gradient-bg-welcome">
+     
+     <div className="gradient-bg-services">
+       
        <SignUp />
      </div>
      {/* <Transaction />
