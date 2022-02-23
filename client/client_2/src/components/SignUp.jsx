@@ -10,13 +10,13 @@ export default function SignUp() {
         <ul className="text-center">
           
           <label for="name" className="text-white md:flex hidden list-none flex-row justify-center items-center flex-initial">Name:</label>
-          <input type="text" id="name" name="user_name"></input>
+          <input type="text" id="name" name="user_name" className='rounded-full'></input>
         
         
           <label for="mail" className="text-white md:flex hidden list-none flex-row justify-center items-center flex-initial">E-mail:</label>
-          <input type="email" id="mail" name="user_email"></input>
+          <input type="email" id="mail" name="user_email" className='rounded-full'></input>
           
-          <h5 className="text-white md:flex hidden list-none flex-row justify-center items-center flex-initial">By creating an account you agree to receive correspondence from us regarding "The RameNFT Bar"</h5>
+          <h5 className="text-white md:flex hidden list-none flex-row justify-center items-center flex-initial">By creating an account you agree to receive <br /> correspondence from us regarding "The RameNFT Bar"</h5>
           <button type="submit" className="bg-[#2952e3] text-white py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">Sign Up</button>
         </ul>
       </form>
